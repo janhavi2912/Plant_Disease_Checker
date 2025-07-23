@@ -1,0 +1,428 @@
+@import "tailwindcss";
+/* index.css */
+
+.app-container {
+  min-height: 100vh;
+  background-image: url('images/leaves.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  position: relative;
+  z-index: 1;
+
+}
+
+.content-wrapper {
+  min-height: 100vh;
+  background-color: transparent;
+  position: relative;
+  z-index: 2;
+}
+.header {
+  background: none; /* Remove any background */
+  color: white; /* Change text color for better contrast */
+  padding: 1rem 1.5rem; /* Keep padding for spacing */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /*backdrop-filter: blur(10px); /* Optional: keep for a subtle blur effect */
+  position: relative; /* Ensure it stays in place */
+  z-index: 1; /* Ensure it appears above the background */
+}
+
+.header-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s ease;
+  padding: 0.5rem 1rem; /* Add padding for better hover effect */
+  border-radius: 0.25rem; /* Add border radius for better hover effect */
+}
+
+.nav-link:hover {
+  background-color: #74ab74; /* light green hover */
+  color: darkgreen;
+  cursor: pointer;
+}
+
+.hero-section {
+  padding: 5rem 1rem;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin-top: 20vh; /* Adjust this value as needed */
+  margin-bottom: 1rem;
+}
+.blurred-text {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
+  text-align: center;
+  color: white;
+}
+
+
+.hero-text {
+  font-size: 1.1rem;
+  color: white;
+  margin-bottom: 2rem;
+}
+
+.hero-button {
+  background-color: green;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+}
+
+.upload-section {
+  padding: 1rem 1.5rem;
+  text-align: center;
+  color: white;
+}
+
+.upload-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.upload-input {
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+.upload {
+  padding: 2rem 1.5rem;
+  cursor: pointer;
+}
+.upload-button {
+  background-color: green;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+}
+.upload-bg{
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+  border-radius: 20%;
+
+}
+.webcam-container {
+  margin-top: 15px;
+}
+.flash-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  border-radius: 15px; /* Optional: rounded corners for the container */
+  overflow: hidden; /* Prevent content from overflowing */
+}
+
+.flash-card-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+.headline {
+  position: absolute;
+  top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+  border-radius: 10px;
+  z-index: 1;
+  text-align: center;
+  width: auto;
+}
+
+
+.flash-card {
+  width: 300px;
+  height: 400px;
+  position: absolute;
+  
+  backface-visibility: hidden;
+  transition: transform 1s ease-in-out, filter 1s ease-in-out;
+  background: rgb(10, 70, 28); /* Semi-transparent background */
+  backdrop-filter: blur(10px); /* Apply blur to the background */
+  border-radius: 10px; /* Optional: rounded corners for the cards */
+  padding: 20px;
+}
+
+.flash-card.active {
+  transform: translateX(0); /* Center the active card */
+  filter: blur(0); /* No blur for the active card */
+  z-index: 2; /* Ensure the active card is on top */
+}
+
+.flash-card.prev {
+  transform: translateX(-350px); /* Position the previous card to the left */
+  filter: blur(2px); /* Apply subtle blur to the previous card */
+  z-index: 1; /* Ensure the previous card is below the active card */
+}
+
+.flash-card.next {
+  transform: translateX(350px); /* Position the next card to the right */
+  filter: blur(2px); /* Apply subtle blur to the next card */
+  z-index: 1; /* Ensure the next card is below the active card */
+}
+
+/* Navigation buttons */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px; /* Set width */
+  height: 40px; /* Set height */
+  background-color: transparent;
+  border-radius: 50%; /* Makes the button circular */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  color: #faf9f9;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Left arrow */
+.left-arrow {
+  left: -20px;
+}
+
+/* Right arrow */
+.right-arrow {
+  right: -20px;
+}
+
+/* Hover effect */
+.arrow:hover {
+  background-color: #94e755; /* Background color on hover */
+  color: #fff; /* Text color on hover */
+}
+.flash-card-title {
+  font-size: 24px;
+  color: #bce23e;
+  font-weight: bold;
+}
+.about-section {
+  padding: 4rem 1.5rem;
+  text-align: center;
+  background-color: #576659;
+}
+
+.about-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+}
+
+.about-text {
+  font-size: 1.1rem;
+  color: #ffffff;
+}
+/*"Transforming Agriculture with Smart Disease Diagnosis"
+
+*/
+
+.footer {
+  background-color: rgb(52, 139, 52);
+  position: relative;
+  color: white;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  z-index: 3;  /* Makes sure the footer appears above the background */
+
+}
+
+.footer-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.footer-text {
+  color: #ffffff;
+}
+
+
+.block{
+  animation: appear linear;
+  animation-timeline: view();
+  animation-range: entry 0 cover 60%;
+  
+}
+
+/* Add this to your index.css */
+.tagline {
+  font-size: 7rem; /* Adjust as needed */
+  font-weight: bold;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+  height: 25vh; /* Makes the tagline occupy 25% of the viewport height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slideIn 1s ease-out forwards;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/*@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(5px);
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    filter: blur(5px);
+
+  }
+}*/
+
+/* Add this at the bottom of your index.css file */
+
+.image-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.image-preview {
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  object-fit: cover;
+  border: 10px solid white;
+}
+
+.prediction-result {
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  backdrop-filter: blur(10px);   /* Apply blur to the background */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1.5rem;
+  color: white;
+  font-size: 1.25rem;
+  font-weight: 500;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  text-align: center;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 90%;
+  animation: fadeInResult 0.5s ease-in-out;
+}
+
+/* Small devices (phones) */
+@media only screen and (max-width: 600px) {
+  .tagline {
+    font-size: 2.5rem;
+    height: auto;
+    padding: 10px;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+    margin-top: 10vh;
+  }
+
+  .hero-text {
+    font-size: 1rem;
+  }
+
+  .upload-title {
+    font-size: 1.5rem;
+  }
+
+  .image-preview {
+    max-width: 90%;
+    border: 5px solid white;
+  }
+
+  .prediction-result {
+    font-size: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-list {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .header {
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+  }
+}
+
+/* Medium devices (tablets) */
+@media only screen and (min-width: 601px) and (max-width: 1024px) {
+  .tagline {
+    font-size: 4rem;
+  }
+
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .upload-title {
+    font-size: 1.8rem;
+  }
+
+  .image-preview {
+    max-width: 70%;
+  }
+}

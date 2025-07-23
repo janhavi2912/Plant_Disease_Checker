@@ -7,7 +7,7 @@ import tailwindcss from '@tailwindcss/vite'
 export default defineConfig({
   plugins: [react(),
   tailwindcss(),],
-  base: "Plant_Disease_Checker" ,
+  base: "/Plant_Disease_Checker/" ,
 
 
 })
